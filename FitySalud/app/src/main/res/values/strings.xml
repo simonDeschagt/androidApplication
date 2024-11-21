@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FitySalud</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="register">Registrarse</string>
 </resources>
