@@ -2,4 +2,7 @@
     <string name="app_name">FitySalud</string>
     <string name="login">Iniciar Sesión</string>
     <string name="register">Registrarse</string>
+    <string name="principal_fragment">Principal</string>
+    <string name="perfil_fragment">Perfil</string>
+    <string name="ejercicios_fragment">Ejercicios</string>
 </resources>
