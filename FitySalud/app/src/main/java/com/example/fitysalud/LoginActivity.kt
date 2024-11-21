@@ -89,12 +89,12 @@ class LoginActivity : AppCompatActivity() {
 
         databaseHelper = DatabaseHelper(this)
 
-        binding.btnLogin.setOnClickListener {
-            val loginNombre = binding.etEmail.text.toString()
-            val loginContrasena = binding.etPassword.text.toString()
+        binding.loginButton.setOnClickListener {
+            val loginNombre = binding.loginCorreo.text.toString()
+            val loginContrasena = binding.loginContrasena.text.toString()
             loginDatabase(loginNombre, loginContrasena)
         }
-        binding.btnSignup.setOnClickListener {
+        binding.btnRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             finish()

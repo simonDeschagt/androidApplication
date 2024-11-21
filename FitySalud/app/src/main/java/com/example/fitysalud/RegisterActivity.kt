@@ -26,11 +26,11 @@ class RegisterActivity : AppCompatActivity() {
             registerDatabase(registerNombre, registerContrasena, registerCorreo, registerNumero)
         }
 
-//        binding.loginRedirect.setOnClickListener {
-//            val intent = Intent(this, LoginActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        binding.loginRedirectLink.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun registerDatabase(nombre: String, contrasena: String, correo: String, numero: String) {
