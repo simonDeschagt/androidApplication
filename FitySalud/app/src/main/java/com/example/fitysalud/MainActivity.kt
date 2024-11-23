@@ -32,11 +32,11 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.ejercicios -> {
-                    replaceFragment(ejercicios())
+                    replaceFragment(Ejercicios())
                     true
                 }
                 R.id.perfil -> {
-                    replaceFragment(perfil())
+                    replaceFragment(Perfil())
                     true
                 }
                 else -> false

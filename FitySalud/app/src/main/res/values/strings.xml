@@ -5,4 +5,6 @@
     <string name="principal_fragment">Principal</string>
     <string name="perfil_fragment">Perfil</string>
     <string name="ejercicios_fragment">Ejercicios</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
