@@ -38,16 +38,13 @@ class Perfil : Fragment() {
             startActivity(intent)
         }
         binding.dataButton.setOnClickListener {
-            val intent = Intent(requireContext(), DatosPersonal::class.java)
-            startActivity(intent)
+            (activity as MainActivity).replaceFragment(DatosPersonal())
         }
         binding.personalWorkoutButton.setOnClickListener {
-            val intent = Intent(requireContext(), PersonalWorkout::class.java)
-            startActivity(intent)
+            (activity as MainActivity).replaceFragment(PersonalWorkout())
         }
         binding.educativaButton.setOnClickListener {
-            val intent = Intent(requireContext(), Educativa::class.java)
-            startActivity(intent)
+            (activity as MainActivity).replaceFragment(Educativa())
         }
         binding.logoutButton.setOnClickListener {
             val intent = Intent(requireContext(), LoginActivity::class.java)
