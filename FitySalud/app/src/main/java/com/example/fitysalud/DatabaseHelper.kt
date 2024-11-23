@@ -20,6 +20,8 @@ class DatabaseHelper(private val context: Context) :
         private const val COLUMN_NUMERO = "numero"
     }
 
+    private val preferences = Preferences(context)
+
     override fun onCreate(db: SQLiteDatabase?) {
         val createTableQuery = ("CREATE TABLE $TABLE_NAME (" +
                 "$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -51,6 +53,25 @@ class DatabaseHelper(private val context: Context) :
         val db = readableDatabase
         val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_CORREO = '$correo' AND $COLUMN_CONTRASENA = '$contrasena'"
         val cursor = db.rawQuery(query, null)
-        return cursor.count > 0
+        return if (cursor.moveToFirst()) {
+            val nombre = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOMBRE))
+            preferences.saveNombre(nombre)
+            preferences.saveEmail(correo)
+            cursor.close()
+            true
+        } else {
+            cursor.close()
+            false
+        }
     }
+
+    fun getUserData(): User {
+        val nombre = preferences.getNombre() ?: ""
+        val correo = preferences.getEmail() ?: ""
+        return User(nombre, correo)
+    }
+
+
 }
+
+data class User(val nombre: String, val correo: String)
