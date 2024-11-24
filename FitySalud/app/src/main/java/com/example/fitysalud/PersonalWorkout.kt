@@ -1,31 +1,35 @@
 package com.example.fitysalud
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.TypedValue
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.MarginLayoutParams
+import android.widget.Button
+import android.widget.LinearLayout
+import com.example.fitysalud.databinding.FragmentPersonalWorkoutBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PersonalWorkout.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class PersonalWorkout : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private lateinit var binding: FragmentPersonalWorkoutBinding
+    private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var preferences: Preferences
+    private var selectedEjercicios = mutableListOf<Int>()
+    private var userId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        databaseHelper = DatabaseHelper(requireContext())
+        preferences = Preferences(requireContext())
+        userId = preferences.getUserId()
+        if (userId > 0) {
+            selectedEjercicios = databaseHelper.getUserEjercicios(userId).toMutableList()
         }
     }
 
@@ -33,27 +37,64 @@ class PersonalWorkout : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_personal_workout, container, false)
+        binding = FragmentPersonalWorkoutBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment personalWorkout.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PersonalWorkout().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.backButton.setOnClickListener {
+            val intent = Intent(requireContext(), MainActivity::class.java)
+            startActivity(intent)
+        }
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        addEjercicioButtons(selectedEjercicios)
+    }
+
+    private fun addEjercicioButtons(ejercicios: List<Int>) {
+        val marginBottom = 20.dpToPx()
+        val sidePadding = 40.dpToPx()
+
+        ejercicios.forEachIndexed() { index, ejercicio ->
+            val button = Button(requireContext()).apply {
+                id = View.generateViewId()
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                ).apply {
+                    setMargins(0, 0, 0, marginBottom)
+                }
+                text = resources.getResourceEntryName(ejercicio)
+                setBackgroundResource(R.drawable.button_background)
+                setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    0,
+                    0,
+                    R.drawable.baseline_star_24,
+                    0
+                )
+                gravity = Gravity.CENTER
+                setPadding(sidePadding, 0, sidePadding, 0)
+                setOnClickListener {
+                    selectedEjercicios.remove(ejercicio)
+                    databaseHelper.saveUserEjercicios(userId, selectedEjercicios)
+                    binding.personalWorkoutLinearLayout.removeView(this)
                 }
             }
+            binding.personalWorkoutLinearLayout.addView(button)
+        }
+    }
+
+    private fun Int.dpToPx(): Int {
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            this.toFloat(),
+            resources.displayMetrics
+        ).toInt()
     }
 }

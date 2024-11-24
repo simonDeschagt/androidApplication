@@ -47,7 +47,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="50dp"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:paddingBottom="10dp">
 
             <Button
                 android:id="@+id/ejercicio1"
@@ -55,11 +59,12 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 1"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"
+                />
 
             <Button
                 android:id="@+id/ejercicio2"
@@ -67,11 +72,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 2"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio3"
@@ -79,11 +84,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 3"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio4"
@@ -91,11 +96,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 4"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio5"
@@ -103,11 +108,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 5"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio6"
@@ -115,11 +120,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 6"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio7"
@@ -127,11 +132,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 7"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio8"
@@ -139,11 +144,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 8"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio9"
@@ -151,11 +156,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 9"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio10"
@@ -163,11 +168,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 10"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio11"
@@ -175,11 +180,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 11"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio12"
@@ -187,11 +192,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 12"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio13"
@@ -199,11 +204,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 13"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio14"
@@ -211,11 +216,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 14"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio15"
@@ -223,11 +228,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 15"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio16"
@@ -235,11 +240,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 16"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio17"
@@ -247,11 +252,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 17"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio18"
@@ -259,11 +264,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 18"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio19"
@@ -271,11 +276,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 19"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/ejercicio20"
@@ -283,11 +288,11 @@
                 android:layout_height="wrap_content"
                 android:text="Ejercicio 20"
                 android:background="@drawable/button_background"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:drawableEnd="@drawable/baseline_star_border_24"/>
+                android:layout_marginBottom="20dp"
+                android:drawableEnd="@drawable/baseline_star_border_24"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:gravity="center"/>
 
 
         </LinearLayout>
