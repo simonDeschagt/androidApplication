@@ -1,59 +1,73 @@
 package com.example.fitysalud
 
 import android.os.Bundle
+import android.util.TypedValue
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import android.widget.Button
+import com.example.fitysalud.databinding.FragmentEducativaBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Educativa.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Educativa : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private lateinit var binding: FragmentEducativaBinding
+    private var isFullSize = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_educativa, container, false)
+        binding = FragmentEducativaBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment educativa.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Educativa().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupWebView(binding.articulo1, "https://www.who.int/es/news-room/q-a-detail/coronavirus-disease-covid-19")
+        setupWebView(binding.articulo2, "https://www.mayoclinic.org")
+        setupWebView(binding.articulo3, "https://www.cdc.gov")
+
+        setupButton(binding.fullSizeButton1, binding.articulo1)
+        setupButton(binding.fullSizeButton2, binding.articulo2)
+        setupButton(binding.fullSizeButton3, binding.articulo3)
+    }
+
+    private fun setupWebView(webView: WebView, url: String) {
+        webView.webViewClient = WebViewClient()
+        webView.apply {
+            loadUrl(url)
+            settings.javaScriptEnabled = true
+            settings.safeBrowsingEnabled = true
+        }
+    }
+
+    private fun setupButton(button: View, webView: WebView) {
+        button.setOnClickListener {
+            if (isFullSize) {
+                webView.layoutParams.height = 300.dpToPx()
+                (button as Button).text = "Full Size"
+            } else {
+                webView.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
+                (button as Button).text = "Shrink"
             }
+            webView.requestLayout()
+            isFullSize = !isFullSize
+        }
+    }
+
+    private fun Int.dpToPx(): Int {
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            this.toFloat(),
+            resources.displayMetrics
+        ).toInt()
     }
 }
