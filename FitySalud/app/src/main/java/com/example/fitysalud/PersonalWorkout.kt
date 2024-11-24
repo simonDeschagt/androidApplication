@@ -48,8 +48,6 @@ class PersonalWorkout : Fragment() {
             val intent = Intent(requireContext(), MainActivity::class.java)
             startActivity(intent)
         }
-
-
     }
 
     override fun onResume() {
