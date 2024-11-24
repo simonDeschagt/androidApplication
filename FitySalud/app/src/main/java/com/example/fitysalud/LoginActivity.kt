@@ -11,6 +11,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var preferences: Preferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,11 +19,12 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         databaseHelper = DatabaseHelper(this)
+        preferences = Preferences(this)
 
         binding.loginButton.setOnClickListener {
-            val loginNombre = binding.loginCorreo.text.toString()
+            val loginCorreo = binding.loginCorreo.text.toString()
             val loginContrasena = binding.loginContrasena.text.toString()
-            loginDatabase(loginNombre, loginContrasena)
+            loginDatabase(loginCorreo, loginContrasena)
         }
         binding.btnRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
@@ -31,15 +33,18 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun loginDatabase(nombre: String, contrasena: String) {
-        val userExists = databaseHelper.readUser(nombre, contrasena)
-        if (userExists) {
-            Toast.makeText(this, "Login exitoso", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        } else {
-            Toast.makeText(this, "Error al iniciar sesión", Toast.LENGTH_SHORT).show()
+    private fun loginDatabase(correo: String, contrasena: String) {
+        databaseHelper.readUser(correo, contrasena) { userExists ->
+            if (userExists) {
+                val userId = databaseHelper.getUserId(correo, contrasena)
+                preferences.saveUserId(userId)
+                Toast.makeText(this, "Login exitoso", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, "Error al iniciar sesión", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

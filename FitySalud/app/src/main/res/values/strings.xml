@@ -5,6 +5,8 @@
     <string name="principal_fragment">Principal</string>
     <string name="perfil_fragment">Perfil</string>
     <string name="ejercicios_fragment">Ejercicios</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="datos_personal_fragment">Datos de cuerop</string>
+    <string name="personal_workout_fragment">Personal workout</string>
+    <string name="educativa_fragment">Sección educativa</string>
+    <string name="logout">Cerrar Sesión</string>
 </resources>

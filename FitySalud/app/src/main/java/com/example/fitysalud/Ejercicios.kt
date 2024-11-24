@@ -14,11 +14,19 @@ class Ejercicios : Fragment() {
 
     private lateinit var binding: FragmentEjerciciosBinding
     private lateinit var databaseHelper: DatabaseHelper
-    private var unChecked = true
+    private lateinit var preferences: Preferences
+    private var selectedEjercicios = mutableListOf<Int>()
+    private var userId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         databaseHelper = DatabaseHelper(requireContext())
+        preferences = Preferences(requireContext())
+        userId = preferences.getUserId()
+        if (userId > 0) {
+            selectedEjercicios = databaseHelper.getUserEjercicios(userId).toMutableList()
+        }
+
     }
 
     override fun onCreateView(
@@ -47,13 +55,19 @@ class Ejercicios : Fragment() {
 
         buttonIds.forEach { id ->
             val button = binding.root.findViewById<Button>(id)
+            if (selectedEjercicios.contains(id)) {
+                button.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.baseline_star_24, 0)
+            }
             button.setOnClickListener {
-                if (unChecked) {
+                if (selectedEjercicios.contains(id)) {
                     button.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.baseline_star_border_24, 0)
+                    selectedEjercicios.remove(id)
+
                 } else {
                     button.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.baseline_star_24, 0)
+                    selectedEjercicios.add(id)
                 }
-                unChecked = !unChecked
+                databaseHelper.saveUserEjercicios(userId, selectedEjercicios)
             }
         }
     }

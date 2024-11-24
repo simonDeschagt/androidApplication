@@ -21,4 +21,20 @@ class Preferences (val context: Context) {
     fun getEmail(): String? {
         return storage.getString("EMAIL", "")
     }
+
+    fun saveEjercicios(ejercicios: String) {
+        storage.edit().putString("EJERCICIOS", ejercicios).apply()
+    }
+
+    fun getEjercicios(): String? {
+        return storage.getString("EJERCICIOS", "")
+    }
+
+    fun saveUserId(userId: Int) {
+        storage.edit().putInt("USER ID", userId).apply()
+    }
+
+    fun getUserId(): Int {
+        return storage.getInt("USER ID", 0)
+    }
 }
