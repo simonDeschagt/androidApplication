@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">FitySalud</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="register">Registrarse</string>
+    <string name="principal_fragment">Principal</string>
+    <string name="perfil_fragment">Perfil</string>
+    <string name="ejercicios_fragment">Ejercicios</string>
+    <string name="datos_personal_fragment">Datos de cuerop</string>
+    <string name="personal_workout_fragment">Personal workout</string>
+    <string name="educativa_fragment">Sección educativa</string>
+    <string name="logout">Cerrar Sesión</string>
 </resources>
