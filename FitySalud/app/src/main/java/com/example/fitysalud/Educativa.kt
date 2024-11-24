@@ -1,5 +1,6 @@
 package com.example.fitysalud
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.TypedValue
 import androidx.fragment.app.Fragment
@@ -30,6 +31,11 @@ class Educativa : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.backButton.setOnClickListener {
+            val intent = Intent(requireContext(), MainActivity::class.java)
+            startActivity(intent)
+        }
 
         setupWebView(binding.articulo1, "https://www.who.int/es/news-room/q-a-detail/coronavirus-disease-covid-19")
         setupWebView(binding.articulo2, "https://www.mayoclinic.org")
